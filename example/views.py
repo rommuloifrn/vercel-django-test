@@ -13,4 +13,5 @@ def index(request):
         </body>
     </html>
     '''
-    return HttpResponse(html)
+    merda = "pqpveyyy"
+    return HttpResponse(merda)
