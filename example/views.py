@@ -22,4 +22,4 @@ def index(request):
         return HttpResponse("deu certo!!!!")
     except Exception as e:
         print(f"Connection failed: {e}")
-        return HttpResponse("deu bosta")
+        return HttpResponse(f"deu bosta: {e}")
