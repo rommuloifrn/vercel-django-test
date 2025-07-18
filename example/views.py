@@ -3,15 +3,23 @@ from datetime import datetime
 
 from django.http import HttpResponse
 
+import psycopg2
+
+from django.conf import settings
+
 def index(request):
     now = datetime.now()
-    html = f'''
-    <html>
-        <body>
-            <h1>Hello from Vercel!</h1>
-            <p>The current time is { now }.</p>
-        </body>
-    </html>
-    '''
-    merda = "pqpveyyy"
-    return HttpResponse(merda)
+    
+    try:
+        connection = psycopg2.connect(
+            host="db.akbcrclcwkyjqrzuxqzi.supabase.co",
+            port=5432,
+            database="postgres",
+            user="postgres",
+            password=settings.DB_PASSWORD
+        )
+        print("Connection successful!")
+        return HttpResponse("deu certo!!!!")
+    except Exception as e:
+        print(f"Connection failed: {e}")
+        return HttpResponse("deu bosta")

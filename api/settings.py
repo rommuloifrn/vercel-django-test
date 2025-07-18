@@ -14,12 +14,15 @@ from pathlib import Path
 import os, environ
 
 env = environ.Env(
+    DB_PASSWORD=(str)
 )
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
+
+DB_PASSWORD = env('DB_PASSWORD')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
