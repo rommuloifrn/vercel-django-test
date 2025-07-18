@@ -19,7 +19,7 @@ def index(request):
             password=settings.DB_PASSWORD
         )
         print("Connection successful!")
-        return HttpResponse("deu certo!!!!")
+        return HttpResponse("SUCCESS")
     except Exception as e:
         print(f"Connection failed: {e}")
-        return HttpResponse(f"deu bosta: {e}")
+        return HttpResponse(f"ERROR: {e}")
